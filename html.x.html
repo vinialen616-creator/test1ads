@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaleca | Jalecos Profissionais em Ipatinga - MG</title>
+  <meta name="description" content="Jaleca Indústria e Comércio LTDA - Confecção de jalecos e roupas profissionais em Ipatinga/MG. Qualidade, conforto e estilo para sua equipe.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0b5ed7;
+      --secondary: #6c757d;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --accent: #00b4d8;
+    }
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .navbar {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      padding: 15px 0;
+      transition: all 0.3s;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--dark) !important;
+      letter-spacing: -0.5px;
+    }
+    .navbar-brand span { color: var(--primary); }
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark) !important;
+      margin: 0 8px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: var(--primary) !important; }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(13,110,253,0.92) 0%, rgba(0,180,216,0.88) 100%),
+                  url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      position: relative;
+      padding: 120px 0 80px;
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    .hero .badge-hero {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .btn-hero {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .btn-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      background: #f8f9fa;
+      color: var(--primary-dark);
+    }
+    .btn-outline-hero {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .btn-outline-hero:hover {
+      background: #fff;
+      color: var(--primary);
+      border-color: #fff;
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: 2.3rem;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+    .section-subtitle {
+      color: var(--secondary);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+    .divider {
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.4s;
+      border: 1px solid #eef0f3;
+      height: 100%;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(13,110,253,0.12);
+      border-color: transparent;
+    }
+    .feature-icon {
+      width: 75px;
+      height: 75px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      transition: transform 0.4s;
+    }
+    .feature-card:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
+    .feature-card h5 { font-weight: 700; margin-bottom: 12px; color: var(--dark); }
+    .feature-card p { color: var(--secondary); font-size: 0.95rem; margin: 0; }
+
+    .product-card {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+      transition: all 0.4s;
+      height: 100%;
+      border: 1px solid #eef0f3;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(13,110,253,0.15);
+    }
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .product-card:hover img { transform: scale(1.08); }
+    .product-img-wrapper { overflow: hidden; position: relative; }
+    .product-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .product-card .card-body { padding: 25px; }
+    .product-card h5 { font-weight: 700; color: var(--dark); }
+    .product-card p { color: var(--secondary); font-size: 0.92rem; }
+
+    .about-section { background: var(--light); }
+    .about-img {
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 350px;
+    }
+    .about-list { list-style: none; padding: 0; }
+    .about-list li {
+      padding: 10px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    .about-list li i {
+      color: var(--primary);
+      margin-right: 14px;
+      margin-top: 3px;
+      font-size: 1.1rem;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 30px 15px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .stat-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(13,110,253,0.12); }
+    .stat-box .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .stat-box .label { color: var(--secondary); font-size: 0.9rem; margin-top: 10px; font-weight: 500; }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 35px 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      height: 100%;
+      position: relative;
+      border: 1px solid #eef0f3;
+    }
+    .testimonial-card .quote-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      opacity: 0.15;
+      position: absolute;
+      top: 20px;
+      right: 25px;
+    }
+    .testimonial-card p { color: #555; font-style: italic; }
+    .testimonial-card .stars { color: #ffc107; margin-bottom: 12px; }
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--dark) 0%, #16213e 100%);
+      color: #fff;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 30px;
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .contact-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+    }
+    .contact-card .icon-circle {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+    .contact-card h6 { font-weight: 700; margin-bottom: 8px; }
+    .contact-card p, .contact-card a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin: 0;
+      transition: color 0.3s;
+    }
+    .contact-card a:hover { color: #fff; }
+
+    .info-table {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    }
+    .info-table .table { margin: 0; }
+    .info-table .table th {
+      background: var(--light);
+      font-weight: 600;
+      color: var(--dark);
+      width: 40%;
+      border-color: #eef0f3;
+    }
+    .info-table .table td { color: #555; border-color: #eef0f3; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 24px;
+      padding: 60px 40px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    .cta-banner h2 { font-weight: 800; font-size: 2.2rem; margin-bottom: 15px; }
+    .cta-banner p { opacity: 0.95; max-width: 600px; margin: 0 auto 30px; }
+    .btn-cta {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.3s;
+    }
+    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); color: var(--primary-dark); }
+
+    footer {
+      background: #0f0f1a;
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 25px;
+    }
+    footer h5 { color: #fff; font-weight: 700; margin-bottom: 20px; }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--primary); }
+    footer ul { list-style: none; padding: 0; }
+    footer ul li { margin-bottom: 10px; }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      margin-right: 10px;
+      transition: all 0.3s;
+      color: #fff;
+    }
+    .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px; margin-top: 40px; font-size: 0.88rem; }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+      z-index: 999;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); color: #fff; box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+
+    @media (max-width: 991px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero { min-height: auto; padding: 100px 0 60px; }
+      .section-title { font-size: 1.9rem; }
+      .cta-banner h2 { font-size: 1.7rem; }
+    }
+    @media (max-width: 767px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .section-title { font-size: 1.6rem; }
+      .cta-banner { padding: 40px 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><i class="fas fa-tshirt me-2" style="color:var(--primary)"></i>Jale<span>ca</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a href="https://wa.me/5531992901940" target="_blank" class="btn btn-primary rounded-pill px-4 py-2" style="font-weight:600;">
+              <i class="fab fa-whatsapp me-1"></i> Orçamento
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge-hero"><i class="fas fa-award me-2"></i>Desde 2018 em Ipatinga - MG</span>
+          <h1>Jalecos profissionais que unem <span style="color:#ffe066;">conforto, estilo e qualidade</span></h1>
+          <p>Somos especialistas na confecção de roupas profissionais para clínicas, hospitais, laboratórios, consultórios e empresas. Vista sua equipe com a qualidade Jaleca.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#produtos" class="btn-hero"><i class="fas fa-tshirt me-2"></i>Conheça os Produtos</a>
+            <a href="https://wa.me/5531992901940" target="_blank" class="btn-outline-hero"><i class="fab fa-whatsapp me-2"></i>Fale Conosco</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS / ÍCONES -->
+  <section class="py-5" id="diferenciais" style="padding-top:90px !important;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="divider"></div>
+        <h2 class="section-title">Por que escolher a Jaleca?</h2>
+        <p class="section-subtitle">Trabalhamos com dedicação para oferecer os melhores jalecos e roupas profissionais do mercado, com atendimento personalizado e entrega ágil.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-cut"></i></div>
+            <h5>Fabricação Própria</h5>
+            <p>Indústria e comércio com produção própria, garantindo controle total de qualidade em cada peça.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-medal"></i></div>
+            <h5>Alta Durabilidade</h5>
+            <p>Tecidos selecionados e costura reforçada para resistir à rotina intensa de trabalho.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-palette"></i></div>
+            <h5>Personalização</h5>
+            <p>Bordados, cores e modelos personalizados com a identidade visual da sua empresa.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+            <h5>Entrega Ágil</h5>
+            <p>Atendimento rápido em Ipatinga e região, com prazos que respeitam sua necessidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about-section py-5" id="sobre">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe Jaleca" class="about-img">
+        </div>
+        <div class="col-lg-6">
+          <div class="divider ms-0" style="margin:0 0 20px 0;"></div>
+          <h2 class="section-title text-start">Sobre a Jaleca</h2>
+          <p class="text-secondary mb-4">A <strong>Jaleca Indústria e Comércio LTDA</strong>, fundada em 07/05/2018, está localizada em Ipatinga/MG e atua na confecção de roupas profissionais, exceto sob medida. Com quase uma década de experiência, nos tornamos referência regional em jalecos e uniformes profissionais.</p>
+          <ul class="about-list">
+            <li><i class="fas fa-circle-check"></i><span><strong>CNPJ:</strong> 30.379.063/0001-61</span></li>
+            <li><i class="fas fa-circle-check"></i><span><strong>Razão Social:</strong> Jaleca Industria e Comercio LTDA</span></li>
+            <li><i class="fas fa-circle-check"></i><span><strong>Atividade:</strong> Confecção de roupas profissionais</span></li>
+            <li><i class="fas fa-circle-check"></i><span><strong>Situação:</strong> <span class="badge bg-success">Ativa</span></span></li>
+            <li><i class="fas fa-circle-check"></i><span><strong>Regime:</strong> Optante pelo Simples Nacional</span></li>
+          </ul>
+          <a href="#contato" class="btn btn-primary rounded-pill px-4 py-2 mt-3" style="font-weight:600;">
+            <i class="fas fa-envelope me-2"></i>Entre em Contato
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="py-5" id="produtos" style="padding-top:80px !important;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="divider"></div>
+        <h2 class="section-title">Nossos Produtos</h2>
+        <p class="section-subtitle">Conheça nossa linha de jalecos e roupas profissionais desenvolvidas para proporcionar conforto, higiene e elegância no ambiente de trabalho.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-tag">Mais Vendido</span>
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaleco Branco Clássico">
+            </div>
+            <div class="card-body">
+              <h5>Jaleco Branco Clássico</h5>
+              <p>Jaleco tradicional em branco, ideal para médicos, dentistas e enfermeiros. Tecido respirável e caimento perfeito.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Disponível</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20o%20Jaleco%20Branco%20Clássico" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-tag" style="background:var(--accent);">Novidade</span>
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaleco Colorido">
+            </div>
+            <div class="card-body">
+              <h5>Jaleco Colorido</h5>
+              <p>Modelos em diversas cores para pediatras, veterinários e profissionais que buscam um toque de personalidade.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Disponível</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20o%20Jaleco%20Colorido" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-tag" style="background:#6c757d;">Corporativo</span>
+              <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaleco Corporativo">
+            </div>
+            <div class="card-body">
+              <h5>Uniformes Corporativos</h5>
+              <p>Jalecos personalizados com bordado do logo da sua empresa. Ideal para clínicas e laboratórios.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Sob Encomenda</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20Uniformes%20Corporativos" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaleco Infantil">
+            </div>
+            <div class="card-body">
+              <h5>Jalecos Infantis</h5>
+              <p>Para pediatras e odontopediatras que desejam um atendimento mais acolhedor e lúdico para os pequenos.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Disponível</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20Jalecos%20Infantis" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaleco Cirúrgico">
+            </div>
+            <div class="card-body">
+              <h5>Jalecos Cirúrgicos</h5>
+              <p>Peças desenvolvidas para centro cirúrgico, com tecidos de alta performance e conforto prolongado.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Disponível</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20Jalecos%20Cirúrgicos" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aventais">
+            </div>
+            <div class="card-body">
+              <h5>Aventais e Acessórios</h5>
+              <p>Aventais, toucas, sapatilhas e acessórios complementares para completar o uniforme profissional.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="text-primary fw-bold"><i class="fas fa-check-circle me-1"></i>Disponível</span>
+                <a href="https://wa.me/5531992901940?text=Quero%20saber%20mais%20sobre%20Aventais%20e%20Acessórios" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3">Solicitar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS -->
+  <section class="py-5" style="background:var(--light);">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="number">+8</div>
+            <div class="label">Anos de Experiência</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="number">+500</div>
+            <div class="label">Clientes Atendidos</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="number">+50</div>
+            <div class="label">Modelos Disponíveis</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-box">
+            <div class="number">100%</div>
+            <div class="label">Qualidade Garantida</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="py-5" id="depoimentos">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="divider"></div>
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <p class="section-subtitle">A satisfação de quem veste Jaleca é o nosso maior orgulho.</p>
+      </div>
+      <div class="row g-
